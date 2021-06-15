@@ -64,4 +64,4 @@ const magicItems = [{
 },
 ]
 
-module.exports = app;
+module.exports = magicItems;
