@@ -2,7 +2,7 @@ const app = require('../server.js')
 const supertest = require('supertest')
 const request = supertest(app)
 
-it('gets the test endpoint', async() => {
+it('tests the endpoint for the entire list', async() => {
     const magicItems = [{
         id: 1,
         name: 'Sword of Embers',
@@ -72,4 +72,19 @@ it('gets the test endpoint', async() => {
 
   expect(response.status).toBe(200)
   expect(response.body).toEqual(magicItems)
+})
+
+it('tests the endpoint for a single item', async() => {
+    const magicItem = {
+        id: 1,
+        name: 'Sword of Embers',
+        type: 'Sword',
+        level: 6,
+        cursed: false,
+        effect: 'A balde roughly forged with special metals. It lets off heat as if it was just taken out of the forge.'
+    }
+  const response = await request.get('/magicItems/1')
+
+  expect(response.status).toBe(200)
+  expect(response.body).toEqual(magicItem)
 })
