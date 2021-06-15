@@ -63,3 +63,5 @@ const magicItems = [{
     effect: 'A copy of the master ring. Super cursed.'
 },
 ]
+
+module.exports = app;
